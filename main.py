@@ -3,7 +3,7 @@ from collections import UserDict
 
 class AddressBook(UserDict):
     def add_record(rec):
-        
+        pass
 
 
 class Record():
