@@ -6,8 +6,11 @@ class AddressBook(UserDict):
 
 
 class Record():
-   def __repr__(self):
-       return str(.....)
+
+    def __repr__(self, records):
+        # result = map(str, reсords)
+        return "\n".join(str(rec) for rec in records)
+        #   return str(.....)
 
 
 class Field():
