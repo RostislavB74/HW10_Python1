@@ -2,10 +2,14 @@ from collections import UserDict
 
 
 class AddressBook(UserDict):
-    pass
+    def add_record(rec):
+        
 
 
 class Record():
+    def __init__(self, name, num_phone):
+        self.name = name
+        self.phone = num_phone
 
     def __repr__(self, records):
         # result = map(str, reсords)
@@ -17,12 +21,14 @@ class Field():
     pass
 
 
-class Name():
-    pass
+class Name(Field):
+    def __init__(self, data):
+        self.name = data
 
 
-class Phone():
-    pass
+class Phone(Field):
+    def __init__(self, num_phone):
+        self.phone = num_phone
 
 
 if __name__ == "__main__":
