@@ -1,7 +1,7 @@
 from collections import UserDict
 
 
-class Dekorator():
+class Dekorator:
     def input_error(func):
         def wrapper(*args, **kwargs):
             try:
@@ -34,7 +34,7 @@ class ControlBot:
         return "Unknown command"
 
 
-class Field():
+class Field:
     pass
 
 
@@ -68,7 +68,7 @@ def main():
             print(ControlBot.no_command())
 
 
-class Parser():
+class Parser:
 
     def parser(text: str):  # -> tuple[callable, tuple[str] | None]:
 
@@ -97,7 +97,7 @@ class Parser():
         #   return str(.....)
 
 
-class Record():
+class Record:
 
     def __init__(self, name, num_phone):
         self.name = name
@@ -127,7 +127,7 @@ class Record():
         return f"Change success {name} from {phone_old} to {phone_new}"
 
 
-class RequestContacts():
+class RequestContacts:
 
     @Dekorator.input_error
     def get_phone(*args):
