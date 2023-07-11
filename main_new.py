@@ -103,6 +103,9 @@ class Record:
         self.name = name
         self.phone = num_phone
 
+    def __str__(self) -> str:
+        return
+
     @Dekorator.input_error
     def add(*args):
         if len(args) == 2:
