@@ -30,8 +30,7 @@ def change(*args):
     return f"Change success {str.capitalize(name)} {phone}"
 
 
-def exit(*args):
-    return "Good bye!"
+
 
 
 @input_error
