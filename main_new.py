@@ -70,7 +70,7 @@ def main():
 
 class Parser:
 
-    def parser(text: str):  # -> tuple[callable, tuple[str] | None]:
+    def parser(text: str) -> tuple[callable, tuple[str] | None]:
 
         if text:
             text1 = text.lower()
@@ -133,13 +133,13 @@ class Record:
 class RequestContacts:
 
     @Dekorator.input_error
-    def get_phone(*args):
+    def get_phone(self, *args):
         name = str.capitalize(args[0])
-        return f"User:{name}  Phone: {address_book[name]}"
+        return f"User:{name}  Phone: {AddressBook.ab[name]}"
 
     def show_all(*args):
         [print(f"Name contact: {key}  Phone number: {value}", end="\n") for key,
-         value in address_book.items()]
+         value in AddressBook.ab.items()]
         return
 
         # add_record(rec)
