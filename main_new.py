@@ -133,8 +133,8 @@ class Record:
 class RequestContacts:
 
     @Dekorator.input_error
-    def get_phone(self, *args):
-        name = str.capitalize(args[0])
+    def get_phone(*args):
+        name = args[0]
         return f"User:{name}  Phone: {AddressBook.ab[name]}"
 
     def show_all(*args):
