@@ -125,7 +125,7 @@ class Record:
             rec = Record(name, phone)
         AddressBook.ab[name] = phone
         AddressBook.cotacts.append(rec)
-        
+
         return f"Add success {name} {phone}"
 
     def change(*args):
