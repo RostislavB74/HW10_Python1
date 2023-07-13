@@ -70,7 +70,7 @@ def main():
 
 class Parser:
 
-    def parser(text: str) -> tuple[callable, tuple[str] | None]:
+    def parser(text: str): #-> tuple[callable, tuple[str] | None]:
 
         if text:
             text1 = text.lower()
