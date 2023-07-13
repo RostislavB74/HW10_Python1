@@ -92,7 +92,7 @@ class Parser:
             return ControlBot.no_command, ''
 
     def __repr__(self, records):
-        # result = map(str, reсords)
+        #result = map(str, reсords)
         return "\n".join(str(rec) for rec in records)
         #   return str(.....)
 
