@@ -19,7 +19,7 @@ class Dekorator:
 
 class AddressBook(UserDict):
     ab = {}
-    cotacts = []
+    contacts = []
 
 
 class ControlBot:
@@ -42,12 +42,17 @@ class Name(Field):
 
     def __init__(self, data):
         self.name = data
+    def __str__(self) -> str:
+        return self.name
+
 
 
 class Phone(Field):
 
     def __init__(self, num_phone):
         self.phone = num_phone
+    def __str__(self) -> str:
+        return self.phone
 
 
 # class Main():
@@ -91,10 +96,10 @@ class Parser:
         else:
             return ControlBot.no_command, ''
 
-    def __repr__(self, records):
-        #result = map(str, reсords)
-        return "\n".join(str(rec) for rec in records)
-        #   return str(.....)
+    # def __repr__(self, records):
+    #     #result = map(str, reсords)
+    #     return "\n".join(str(rec) for rec in records)
+    #     #   return str(.....)
 
 
 class Record:
@@ -104,7 +109,7 @@ class Record:
         self.phone = num_phone
 
     def __str__(self) -> str:
-        return
+        return self
 
     @Dekorator.input_error
     def add(*args):
@@ -120,6 +125,7 @@ class Record:
             rec = Record(name, phone)
         AddressBook.ab[name] = phone
         AddressBook.cotacts.append(rec)
+        
         return f"Add success {name} {phone}"
 
     def change(*args):
