@@ -39,7 +39,7 @@ class Field:
         self.name = value
     
     def __str__(self) -> str:
-        return self.value
+        return self.name
     
     def __repr__(self) -> str:
         return str(self)
