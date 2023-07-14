@@ -82,8 +82,19 @@ def hello(*args):
 def no_command(*args, **kwargs):
     return "Unknown command"
 
-def 
+
+def remove_phone(*args):
+    name = Name(args[0])
+    phone = Phone(args[1])
+    rec: Record = address_book.get(str(name))
+    print(rec)
+    if rec:
+        return rec.remove_phone(phone)
+    return f"No contact {name} in address book"
+
 # показати все
+
+
 def show_all_command(*args):
     return address_book
 
@@ -92,6 +103,7 @@ def show_all_command(*args):
 COMMANDS = {
     add_contact: ("add", "+"),
     change_phone: ("change", "зміни"),
+    remove_phone: ("remove", "delete", "del",),
     exit_command: ("good bye", "bye", "exit", "end", "close"),
     show_all_command: ("show all", "show"),
     get_phone: ("phone",)
