@@ -2,6 +2,7 @@ from collections import UserDict
 
 
 class Field:
+
     def __init__(self, value) -> None:
         self.value = value
 
@@ -21,6 +22,7 @@ class Phone(Field):
 
 
 class Record:
+
     def __init__(self, name: Name, phone: Phone = None) -> None:
         self.name = name
         self.phones = []
@@ -48,6 +50,7 @@ class Record:
 
 
 class AddressBook(UserDict):
+
     def add_record(self, record: Record):
         self.data[str(record.name)] = record
         return f"Contact {record} add success"
