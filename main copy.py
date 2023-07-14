@@ -83,6 +83,7 @@ def no_command(*args, **kwargs):
     return "Unknown command"
 
 
+@input_error
 def remove_phone(*args):
     name = Name(args[0])
     phone = Phone(args[1])

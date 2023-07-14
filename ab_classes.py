@@ -51,10 +51,10 @@ class Record:
     def remove_phone(self, phone):
         for idx, p in enumerate(self.phones):
             if phone.value == p.value:
-                print(self.phones)
-                print(self.phones[idx])
-                # old_phone =self.phones.pop(self.phones[idx])
-                return f"The phone {phone} is deleted"
+                # print(self.phones)
+                old_phone = (self.phones[idx])
+                self.phones.remove(self.phones[idx])
+                return f"The phone {old_phone} is deleted"
         return f"{phone} not present in phones of contact {self.name}"
 
 
