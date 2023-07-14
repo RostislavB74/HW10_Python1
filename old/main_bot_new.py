@@ -1,4 +1,4 @@
-from ab_classes_new import AddressBook, Name, Phone, Record
+from old.ab_classes_new import AddressBook, Name, Phone, Record
 
 address_book = AddressBook()
 
@@ -20,30 +20,14 @@ def input_error(func):
     return wrapper
 
 
-# def add_contact(*args):
-#     name = Name(args[0])
-#     phone = Phone(args[1])
-#     rec: Record = address_book.get(str(name))
-#     if rec:
-#         return rec.add_phone(phone)
-#     rec = Record(name, phone)
-#     return address_book.add_record(rec)
 @input_error
 def add_contact(*args):
-    if len(args) == 2:
-        name = Name(args[0])
-        phone = Phone(args[1])
-        rec: Record = address_book.get(str(name))
-        if rec:
-            return rec.add_phone(phone)
-        rec = Record(name, phone)
-    if len(args) > 2:
-        phones = []
-        name = Name(args[0])
-        for i in range(1, len(args)):
-            phones.append(Phone(args[i]))
-        rec = Record(name, phones)
-
+    name = Name(args[0])
+    phone = Phone(args[1])
+    rec: Record = address_book.get(str(name))
+    if rec:
+        return rec.add_phone(phone)
+    rec = Record(name, phone)
     return address_book.add_record(rec)
 
 
@@ -59,31 +43,36 @@ def change_phone(*args):
         return rec.change_phone(old_phone, new_phone)
     return f"No contact {name} in address book"
 
-
-# Вийти
-def exit_command(*args):
-    return "Good bye!"
-
-
 # показати контакт
+
+
 @input_error
 def get_phone(*args):
     name = Name(args[0])
     # return f"User {name.value}"
     return f"User {address_book.get(str(name))}"
 
-
 # Привіт
+
+
 def hello(*args):
     return "How can I help you?"
 
+# Вийти
+
+
+def exit_command(*args):
+    return "Good bye!"
 
 # Невідома команда пуста команда
+
+
 def no_command(*args, **kwargs):
     return "Unknown command"
 
-
 # показати все
+
+
 def show_all_command(*args):
     return address_book
 
