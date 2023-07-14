@@ -1,4 +1,4 @@
-from ab_classes import AddressBook, Name, Phone, Record, ControlBot
+from old.ab_classes import AddressBook, Name, Phone, Record, ControlBot
 
 
 def input_error(func):
@@ -32,7 +32,7 @@ def main():
             print(ControlBot.no_command())
 
 
-def parser(text: str): #-> tuple[callable, tuple[str] | None]:
+def parser(text: str):  # -> tuple[callable, tuple[str] | None]:
 
     if text:
         text1 = text.lower()
@@ -71,6 +71,7 @@ def add(*args):
 
     return f"Add success {name} {phone}"
 
+
 def change(*args):
     name = Name(args[0])
     phone_old = Phone(args[1])
@@ -91,8 +92,6 @@ class RequestContacts:
          value in AddressBook.ab.items()]
         return
 
- 
 
 if __name__ == "__main__":
     main()
-
