@@ -29,7 +29,10 @@ def add_contact(*args):
         return rec.add_phone(phone)
     rec = Record(name, phone)
     return address_book.add_record(rec)
+
 # змінити
+
+
 @input_error
 def change_phone(*args):
     name = Name(args[0])
@@ -40,44 +43,57 @@ def change_phone(*args):
     if rec:
         return rec.change_phone(old_phone, new_phone)
     return f"No contact {name} in address book"
+
 # показати контакт
-#@input_error
+
+
+@input_error
 def get_phone(*args):
     name = Name(args[0])
-    return f"User:{name}  Phone: {address_book.get(Phone())}"
+    # return f"User {name.value}"
+    return f"User {address_book.get(str(name))}"
 
 # Привіт
+
+
 def hello(*args):
-        return "How can I help you?"
+    return "How can I help you?"
 
 # Вийти
+
+
 def exit_command(*args):
     return "Good bye!"
 
 # Невідома команда пуста команда
+
+
 def no_command(*args, **kwargs):
     return "Unknown command"
 
 # показати все
+
+
 def show_all_command(*args):
     return address_book
+
 
 # Команди додати, змінити, вихід, показати все, показати контакт
 COMMANDS = {
     add_contact: ("add", "+"),
     change_phone: ("change", "зміни"),
     exit_command: ("good bye", "bye", "exit", "end", "close"),
-    show_all_command: ("show all","show"),
-    get_phone:("phone",)
+    show_all_command: ("show all", "show"),
+    get_phone: ("phone",)
 }
 
 
-def parser(text:str):
+def parser(text: str):
     for cmd, kwds in COMMANDS.items():
         for kwd in kwds:
             if text.lower().startswith(kwd):
                 data = text[len(kwd):].strip().split()
-                return cmd, data 
+                return cmd, data
     return no_command, []
 
 
@@ -89,6 +105,7 @@ def main():
         print(result)
         if cmd == exit_command:
             break
+
 
 if __name__ == "__main__":
     main()
