@@ -1,4 +1,4 @@
-from ab_classes import AddressBook, Name, Phone, Record, ControlBot
+from ab_classes import AddressBook, Name, Phone, Record, ControlBot, RequestContacts
 
 
 def input_error(func):
@@ -54,42 +54,42 @@ def parser(text: str): #-> tuple[callable, tuple[str] | None]:
         return ControlBot.no_command, ''
 
 
-@input_error
-def add(*args):
-    if len(args) == 2:
-        name = Name(args[0])
-        phone = Phone(args[1])
-        rec = Record(name, phone)
-    if len(args) > 2:
-        phone = []
-        name = Name(args[0])
-        for i in range(1, len(args)):
-            phone.append(Phone(args[i]))
-        rec = Record(name, phone)
-    AddressBook.ab[name] = phone
-    AddressBook.contacts.append(rec)
+# @input_error
+# def add(*args):
+#     if len(args) == 2:
+#         name = Name(args[0])
+#         phone = Phone(args[1])
+#         rec = Record(name, phone)
+#     if len(args) > 2:
+#         phone = []
+#         name = Name(args[0])
+#         for i in range(1, len(args)):
+#             phone.append(Phone(args[i]))
+#         rec = Record(name, phone)
+#     AddressBook.ab[name] = phone
+    # AddressBook.contacts.append(rec)
 
-    return f"Add success {name} {phone}"
+    # return f"Add success {name} {phone}"
+# @input_error
+# def change(*args):
+#     name = Name(args[0])
+#     phone_old = Phone(args[1])
+#     phone_new = Phone(args[2])
+#     AddressBook.ab[name] = phone_new
+#     return f"Change success {name} from {phone_old} to {phone_new}"
 
-def change(*args):
-    name = Name(args[0])
-    phone_old = Phone(args[1])
-    phone_new = Phone(args[2])
-    AddressBook.ab[name] = phone_new
-    return f"Change success {name} from {phone_old} to {phone_new}"
 
+# class RequestContacts:
 
-class RequestContacts:
+#     @input_error
+#     def get_phone(*args):
+#         name = args[0]
+#         return f"User:{name}  Phone: {AddressBook.ab[name]}"
 
-    @input_error
-    def get_phone(*args):
-        name = args[0]
-        return f"User:{name}  Phone: {AddressBook.ab[name]}"
-
-    def show_all(*args):
-        [print(f"Name contact: {key}  Phone number: {value}", end="\n") for key,
-         value in AddressBook.ab.items()]
-        return
+#     def show_all(*args):
+#         [print(f"Name contact: {key}  Phone number: {value}", end="\n") for key,
+#          value in AddressBook.ab.items()]
+#         return
 
  
 

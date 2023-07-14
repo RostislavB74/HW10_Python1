@@ -104,10 +104,10 @@ class Record:
                 phone.append(Phone(args[i]))
             rec = Record(name, phone)
         AddressBook.ab[name] = phone
-        AddressBook.cotacts.append(rec)
+        AddressBook.contacts.append(rec)
 
         return f"Add success {name} {phone}"
-
+    @input_error
     def change(*args):
         name = Name(args[0])
         phone_old = Phone(args[1])
