@@ -92,7 +92,7 @@ class Record:
         return self
 
     @input_error
-    def add(*args):
+    def add_command(*args):
         if len(args) == 2:
             name = Name(args[0])
             phone = Phone(args[1])
@@ -108,7 +108,7 @@ class Record:
 
         return f"Add success {name} {phone}"
     @input_error
-    def change(*args):
+    def change_command(*args):
         name = Name(args[0])
         phone_old = Phone(args[1])
         phone_new = Phone(args[2])
