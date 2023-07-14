@@ -21,7 +21,7 @@ def input_error(func):
 
 
 @input_error
-def add_command(*args):
+def add_contact(*args):
     name = Name(args[0])
     phone = Phone(args[1])
     rec: Record = address_book.get(str(name))
@@ -31,7 +31,7 @@ def add_command(*args):
     return address_book.add_record(rec)
 
 @input_error
-def change_command(*args):
+def change_phone(*args):
     name = Name(args[0])
     old_phone = Phone(args[1])
     new_phone = Phone(args[2])
@@ -61,8 +61,8 @@ def show_all_command(*args):
 
 
 COMMANDS = {
-    add_command: ("add", "+"),
-    change_command: ("change", "зміни"),
+    add_contact: ("add", "+"),
+    change_phone: ("change", "зміни"),
     exit_command: ("good bye", "bye", "exit", "end", "close"),
     show_all_command: ("show all","show", )
 }
