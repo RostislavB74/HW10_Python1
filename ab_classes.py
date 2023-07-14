@@ -48,6 +48,13 @@ class Record:
     def __str__(self) -> str:
         return f"{self.name}: {', '.join(str(p) for p in self.phones)}"
 
+    def remove_phone(self, phone):
+        for idx, p in enumerate(self.phones):
+            if phone.value == p.value:
+                old_phone =self.phones.pop(self.phones[idx])
+                return f"The phone {old_phone} is deleted"
+        return f"{phone} not present in phones of contact {self.name}"
+
 
 class AddressBook(UserDict):
 
