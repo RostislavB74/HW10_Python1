@@ -1,6 +1,18 @@
 from collections import UserDict
 
 
+class ControlBot:
+
+    def hello(*args):
+        return "How can I help you?"
+
+    def exit(*args):
+        return "Good bye!"
+
+    def no_command(*args, **kwargs):
+        return "Unknown command"
+
+
 class Field:
     def __init__(self, value) -> None:
         self.value = value
