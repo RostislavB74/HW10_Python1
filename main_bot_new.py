@@ -1,4 +1,4 @@
-from ab_classes import AddressBook, Name, Phone, Record
+from ab_classes_new import AddressBook, Name, Phone, Record
 
 address_book = AddressBook()
 
