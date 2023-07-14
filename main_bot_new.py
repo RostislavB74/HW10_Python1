@@ -40,20 +40,17 @@ def change_phone(*args):
         return rec.change_phone(old_phone, new_phone)
     return f"No contact {name} in address book"
 
+
 def hello(*args):
         return "How can I help you?"
+
 
 def exit_command(*args):
     return "Good bye!"
 
+
 def no_command(*args, **kwargs):
     return "Unknown command"
-# def exit_command(*args):
-#     return "Bye"
-
-
-# def unknown_command(*args):
-#     pass
 
 
 def show_all_command(*args):
@@ -82,13 +79,9 @@ def parser(text:str):
 def main():
     while True:
         user_input = input(">>>")
-        
         cmd, data = parser(user_input)
-        
         result = cmd(*data)
-        
         print(result)
-        
         if cmd == exit_command:
             break
 
