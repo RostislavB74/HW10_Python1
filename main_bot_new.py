@@ -1,4 +1,4 @@
-from ab_classes_new import AddressBook, Name, Phone, Record
+from ab_classes_new import AddressBook, Name, Phone, Record, ControlBot
 
 address_book = AddressBook()
 
@@ -40,13 +40,20 @@ def change_command(*args):
         return rec.change_phone(old_phone, new_phone)
     return f"No contact {name} in address book"
 
+def hello(*args):
+        return "How can I help you?"
 
 def exit_command(*args):
-    return "Bye"
+    return "Good bye!"
+
+def no_command(*args, **kwargs):
+    return "Unknown command"
+# def exit_command(*args):
+#     return "Bye"
 
 
-def unknown_command(*args):
-    pass
+# def unknown_command(*args):
+#     pass
 
 
 def show_all_command(*args):
@@ -57,7 +64,7 @@ COMMANDS = {
     add_command: ("add", "+"),
     change_command: ("change", "зміни"),
     exit_command: ("good bye", "bye", "exit", "end", "close"),
-    show_all_command: ("show all", )
+    show_all_command: ("show all","show", )
 }
 
 
@@ -69,7 +76,7 @@ def parser(text:str):
                 data = text[len(kwd):].strip().split()
                 # print(data)
                 return cmd, data 
-    return unknown_command, []
+    return no_command, []
 
 
 def main():
