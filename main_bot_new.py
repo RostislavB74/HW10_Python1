@@ -30,9 +30,8 @@ def add_contact(*args):
     rec = Record(name, phone)
     return address_book.add_record(rec)
 
+
 # змінити
-
-
 @input_error
 def change_phone(*args):
     name = Name(args[0])
