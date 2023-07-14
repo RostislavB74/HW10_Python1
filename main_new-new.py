@@ -67,7 +67,7 @@ def add(*args):
             phone.append(Phone(args[i]))
         rec = Record(name, phone)
     AddressBook.ab[name] = phone
-    AddressBook.cotacts.append(rec)
+    AddressBook.contacts.append(rec)
 
     return f"Add success {name} {phone}"
 
