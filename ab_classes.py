@@ -91,29 +91,29 @@ class Record:
     def __str__(self) -> str:
         return self
 
-    # @input_error
-    # def add(*args):
-    #     if len(args) == 2:
-    #         name = Name(args[0])
-    #         phone = Phone(args[1])
-    #         rec = Record(name, phone)
-    #     if len(args) > 2:
-    #         phone = []
-    #         name = Name(args[0])
-    #         for i in range(1, len(args)):
-    #             phone.append(Phone(args[i]))
-    #         rec = Record(name, phone)
-    #     AddressBook.ab[name] = phone
-    #     AddressBook.cotacts.append(rec)
+    @input_error
+    def add(*args):
+        if len(args) == 2:
+            name = Name(args[0])
+            phone = Phone(args[1])
+            rec = Record(name, phone)
+        if len(args) > 2:
+            phone = []
+            name = Name(args[0])
+            for i in range(1, len(args)):
+                phone.append(Phone(args[i]))
+            rec = Record(name, phone)
+        AddressBook.ab[name] = phone
+        AddressBook.cotacts.append(rec)
 
-    #     return f"Add success {name} {phone}"
+        return f"Add success {name} {phone}"
 
-    # def change(*args):
-    #     name = Name(args[0])
-    #     phone_old = Phone(args[1])
-    #     phone_new = Phone(args[2])
-    #     AddressBook.ab[name] = phone_new
-    #     return f"Change success {name} from {phone_old} to {phone_new}"
+    def change(*args):
+        name = Name(args[0])
+        phone_old = Phone(args[1])
+        phone_new = Phone(args[2])
+        AddressBook.ab[name] = phone_new
+        return f"Change success {name} from {phone_old} to {phone_new}"
 
 
 class RequestContacts:
