@@ -40,6 +40,11 @@ def change_phone(*args):
         return rec.change_phone(old_phone, new_phone)
     return f"No contact {name} in address book"
 
+#@input_error
+def get_phone(*args):
+    name = Name(args[0])
+    return f"User:{name}  Phone: {address_book.get(Phone(value))}"
+
 
 def hello(*args):
         return "How can I help you?"
@@ -61,7 +66,8 @@ COMMANDS = {
     add_contact: ("add", "+"),
     change_phone: ("change", "зміни"),
     exit_command: ("good bye", "bye", "exit", "end", "close"),
-    show_all_command: ("show all","show", )
+    show_all_command: ("show all","show"),
+    get_phone:("phone",)
 }
 
 
@@ -69,9 +75,7 @@ def parser(text:str):
     for cmd, kwds in COMMANDS.items():
         for kwd in kwds:
             if text.lower().startswith(kwd):
-                # print(cmd)
                 data = text[len(kwd):].strip().split()
-                # print(data)
                 return cmd, data 
     return no_command, []
 
